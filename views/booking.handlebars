@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Greeting</title>
+	<style>
+        .container {
+            padding: 12px;
+            margin: 0 auto;
+            max-width: 750px;
+            border: 1px solid gray;
+        }
+        div { margin-bottom: 12px; }
+        span { font-size: 12px; font-weight: bolder; color: gray; }
+        a { border: none !important; }
+        .body { margin-top: 10px; }
+    </style>
+</head>
+<body>
+	<div class="container">
+		<div>Hello <b>Admin</b></div>
+		<div>Your one of the customer <b>{{fullName}}</b> have requested for room booking</span></div>
+		<div><b>{{fullName}} 's</b> Contact detail and booking request details are listed bellow</span></div>
+		<div>User mail:- <b>{{userEmail}}</b></div>
+        <div>Mobile No:- <b>{{mobile}}</b></div>
+        <div>Arrival in date:- <b>{{arrivalDate}}</b></div>
+        <div>Departure out date:- <b>{{departureDate}}</b></div>
+        <div>Number of rooms:- <b>{{numberOfRooms}}</b></div>
+        <div>Room Category:- <b>{{roomCategory}}</b></div>
+        <div>Room Type:- <b>{{roomType}}</b></div>
+        <div>Number of Adults:- <b>{{numberOfAdults}}</b></div>
+        <div>Number of Childrens:- <b>{{NumberOfChildrens}}</b></div>
+		<div>Thanks,</div>
+		<div><a href="https://bnbhotel.com">bnbhotel.com</a></div>
+	</div>
+</body>
+</html>
