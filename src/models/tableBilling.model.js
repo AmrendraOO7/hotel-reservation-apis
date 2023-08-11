@@ -38,6 +38,7 @@ class tableBill{
     // } 
     // table account open on the checkIn
     static async tableAccountOpen(tableData){
+        //     var query = "INSERT INTO table_item_bill_master (table_no, name, mobile, address, disc_pc, disc_amt, vat_pc, vat_amt, payable_amt, words, status, bill_creator, created_date, updated_date ,gross_total, amt_after_disc, service_charge, delete_status, table_booking_id, current_table_status) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?); SELECT id as id FROM table_item_bill_master ORDER BY id DESC LIMIT 1;";
         var query='INSERT INTO table_item_bill_master (table_no, name, mobile, address, disc_pc, disc_amt, vat_pc, vat_amt, payable_amt, words, status, bill_creator, created_date, updated_date, gross_total, amt_after_disc, service_charge, delete_status, table_booking_id, current_table_status) VALUES((SELECT title FROM resturant_table WHERE id = ?),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?); ';
         return await new Promise((resolve, reject)=>{
             db.query(query,
