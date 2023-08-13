@@ -7,6 +7,8 @@ router.post("/", tableBooking.requestForTableBooking);
 
 router.get('/all',tableBooking.getAllBookingList);
 
+router.get('/all/status',tableBooking.getAllTableByStatus);
+
 router.get("/availableTables",tableBooking.getAvailableTables);
 
 router.put("/checkIn", tableBooking.checkInTable);

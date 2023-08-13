@@ -37,7 +37,7 @@ class RoomSetting {
                     Number(roomSettingData.id)
                 ],
                 (err,res)=>{
-                    console.log(err,res);
+                    //console.log(err,res);
                     if(err) reject(err);
                     else resolve(res);
                 });

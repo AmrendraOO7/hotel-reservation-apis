@@ -66,7 +66,7 @@ async function requestForBooking(req,res){
                     //save
 
                     var isSaved = await bookingModel.requestBooking(bookingOrder);
-                    console.log(isSaved,'isSaved');
+                    //console.log(isSaved,'isSaved');
                     if(isSaved) bookingCodes.push({'roomId': id ,'title': title, 'bookingCode': bookinCode })
 
 
@@ -156,7 +156,7 @@ async function findByBookingCode(req, res) {
 //check in
 async function checkIn(req, res) {
     var data = req.body;
-    console.log(data,'line 152');
+    //console.log(data,'line 152');
     if(data === null) return helper.apiCallBack(null, null, string.REQUIRED_FIELDS, string.INFO_CODE);    
     //check all required field have value or not
     if(data.id === null && data.mobile === null)

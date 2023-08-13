@@ -181,7 +181,7 @@ class tableBill{
                     Number(id)
                 ],
                 (err,res)=>{
-                    console.log(err,res,'getBillDetailsById');
+                    //console.log(err,res,'getBillDetailsById');
                     if(err) reject(err);
                     else resolve(res);
                 });

@@ -11,11 +11,11 @@ apiCallBack = (res, body, message, status) => {
 // handle to auto generate room title
 async function getArrayOfRoomNumber(noOfRoom, floorId) {
   var roomTitleArray = [];
-  console.log(floorId);
+  //console.log(floorId);
   const setting = await getRoomSetting(floorId); 
-  console.log(setting,'::Setting data::')
+  //console.log(setting,'::Setting data::')
   var totalRoom = await roomModel.countTotalRoom(floorId);
-  console.log(setting,totalRoom,'::line 15::');
+  //console.log(setting,totalRoom,'::line 15::');
   if((setting && setting.length <= 0) ||(!totalRoom && totalRoom<0)) return null;
   var roomstart = setting[0]['roomStartNumber'];
   var roomPrefix = setting[0]['roomPrefix'];
@@ -70,11 +70,11 @@ async function getArrayOfTableTitle(noOfTable) {
   const setting = await getTableSetting();
   var totalTable = await countTotalTable();
   if(setting && setting.length <= 0) return null;
-  console.log((setting.length>0) , totalTable ,(totalTable.length<0),'::Boolean values::');
+  //console.log((setting.length>0) , totalTable ,(totalTable.length<0),'::Boolean values::');
   // if((!setting && setting.length>0) || (!totalTable && totalTable.length>0)) return null;
   var startNumber = setting[0]['startNumber'];
   if((setting && setting.length <= 0) ||(!totalTable && totalTable<0)) return null;
-  console.log(!startNumber , startNumber == null, startNumber,'line 77 helper')
+  //console.log(!startNumber , startNumber == null, startNumber,'line 77 helper')
   var prefix = setting[0]['prefix'];
   if(startNumber === null || prefix === null) return null;
   totalTable = Number(totalTable) > 0 ? Number(totalTable) : Number(totalTable);

@@ -37,10 +37,26 @@ class tableBooking {
                     book.bookingCode
                 ],                    
                 (err,res)=>{
-                    console.log(res,err,'requestTableBooking')
+                    //console.log(res,err,'requestTableBooking')
                 if(err) reject(err);
                 else resolve(res);
             });
+        });
+    }
+
+    static async totalTableBookingList(status,date){
+        //var newdate = date.toISOString().substr(0,10);
+        var query = `SELECT tb.id, tb.table_id AS tableId, (SELECT rt.title FROM resturant_table rt WHERE rt.id = tb.table_id) AS tableName, tb.user_id AS userId, tb.booking_status AS bookingStatus, tb.estimated_time AS estimatedTime, tb.created_date AS createdDate, tb.updated_date AS updatedDate,  DATE_FORMAT(tb.arrival_date,'%Y-%m-%d') AS arrivalDate, tb.category_id AS categoryId, (SELECT title FROM category WHERE id = tb.category_id) AS category, tb.type_id AS typeId, (SELECT title FROM TYPE WHERE id = tb.type_id) AS type, tb.number_of_tables AS noOfTables, tb.number_of_child AS noOfChildGuest, tb.number_of_adult AS noOfAdultGuest, tb.name AS fullName, tb.email, tb.address, tb.mobile, tb.id_type AS identificationType, tb.id_number AS identificationNumber, tb.status, tb.time_from AS timeFrom, tb.time_upto AS timeUpto, tb.booking_code AS bookingCode, DATE_FORMAT(tb.arrival_date,'%Y-%m-%d') AS checkIn ,DATE_FORMAT(tb.check_out_date,'%Y-%m-%d') AS checkOut FROM table_booking tb \n`
+        if(status != 'all') query +=  `WHERE tb.booking_status = '${status}' AND tb.arrival_date like '%${date}%' ORDER BY tb.id DESC`;
+        else query +=`ORDER BY tb.id DESC`;
+        return await new Promise((resolve,reject)=>{
+            db.query(query,
+                [
+                ],(err,res)=>{
+                    //console.log(query,err,res,'totalTableBookingList')
+                    if(err) reject(err);
+                    else resolve(res);
+                });
         });
     }
 
@@ -51,7 +67,7 @@ class tableBooking {
                 [
                     date
                 ],
-                (err,res)=>{ console.log(res,err,'requestTableBooking')
+                (err,res)=>{ //console.log(res,err,'requestTableBooking')
                 if(err) reject(err);
                 else resolve(res);
             });
@@ -77,7 +93,7 @@ class tableBooking {
                     Number(noOfTable)
                 ]
                 ,(err,res)=>{
-                    console.log(err,res);
+                    //console.log(err,res);
                 if(err) reject(err);
                 else resolve(res);
             });
@@ -150,7 +166,7 @@ class tableBooking {
         var query = "SELECT title from resturant_table where id = ?";
         return await new Promise((resolve,reject)=>{
             db.query(query,[Number(id)],(err,res)=>{
-                console.log(err,res[0]["resturant_table title"]);
+                //console.log(err,res[0]["resturant_table title"]);
                 if(err) reject(err);
                 else resolve(res[0]["title"]);
             });

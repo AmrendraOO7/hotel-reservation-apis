@@ -39,7 +39,7 @@ async function requestForTableBooking(req,res){
                     //save
 
                     var isSaved = await tableBookingModel.requestTableBooking(bookingOrder);
-                    console.log(isSaved,'isSaved');
+                    //console.log(isSaved,'isSaved');
                     if(isSaved) bookingCodes.push({'tableId': id ,'title': title, 'bookingCode': bookinCode })
 
                     // await tableBookingModel.requestTableBooking(bookingOrder).then(async() => {
@@ -66,6 +66,19 @@ async function getAllBookingList(req,res){
         }).catch(_e => {
             return apiCallBack(res,null,string.ERROR_500.message, string.ERROR_500.code);
         });
+}
+
+
+//get all room by booking code
+async function getAllTableByStatus(req,res){
+    var status = req.query['status'];
+    var date = req.query['date']
+    if(!status && !date) return helper.apiCallBack(res,null,string.REQUIRED_FIELDS,string.INFO_CODE);
+    await tableBookingModel.totalTableBookingList(status,date).then(result =>{
+        return helper.apiCallBack(res,result,null,string.SUCCESS_CODE);
+    }).catch(_e => {
+        return apiCallBack(res,null,"No Tables found..!", string.ERROR_500.code);
+    });
 }
 
 async function getAvailableTables(req,res){
@@ -133,4 +146,4 @@ async function cancelled(req, res) {
    })
 
 }
-module.exports = { requestForTableBooking,getAllBookingList,getAvailableTables,checkInTable,tableCheckOut,cancelled}
+module.exports = { requestForTableBooking,getAllBookingList,getAllTableByStatus,getAvailableTables,checkInTable,tableCheckOut,cancelled}

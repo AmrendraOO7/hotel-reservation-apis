@@ -21,7 +21,7 @@ class Booking {
         var query = "SELECT title from room where id = ?";
         return await new Promise((resolve,reject)=>{
             db.query(query,[Number(id)],(err,res)=>{
-                console.log(err,res[0]["title"]);
+                //console.log(err,res[0]["title"]);
                 if(err) reject(err);
                 else resolve(res[0]["title"]);
             });

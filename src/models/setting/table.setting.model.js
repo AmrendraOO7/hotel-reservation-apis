@@ -25,7 +25,7 @@ class TableSetting {
                     Number(tableSetting.id)
                 ],
                 (err,res)=>{
-                    console.log(err,res);
+                    //console.log(err,res);
                     if(err) reject(err);
                     else resolve(res);
                 });
