@@ -12,6 +12,7 @@ class Room{
                  date, date, true, Number(6)
                 ],
                 (err,res)=>{
+                    console.log(err,res,'model line 15')
                     if(err) reject(err);
                     else resolve(res);
                 });

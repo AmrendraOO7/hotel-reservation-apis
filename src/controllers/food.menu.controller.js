@@ -24,7 +24,7 @@ async function getFoodMenuList(req,res){
 async function getFoodMenuListSearch(req,res){
     var name = req.query.name;
     await FoodMenuModel.searchAllFoodMenu(name).then(result=>{
-        if(result.length == 0) return apiCallBack(res,result,'No Food Menu',INFO_CODE);
+        if(result.length == 0) return apiCallBack(res,result,'No Data Found',INFO_CODE);
         return apiCallBack(res,result,null,SUCCESS_CODE);
     }).catch(_e => {
         return apiCallBack(res,null,ERROR_500.message,ERROR_500.code);

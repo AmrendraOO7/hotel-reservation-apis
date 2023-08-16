@@ -77,7 +77,7 @@ CREATE TABLE `booking` (
   KEY `typeId` (`typeId`),
   CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `category` (`id`),
   CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`typeId`) REFERENCES `type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `booking` */
 
@@ -161,13 +161,14 @@ insert  into `booking`(`id`,`user_id`,`book_from`,`book_to`,`booking_status`,`ch
 (77,NULL,'2023-07-17','2023-07-17','cancelled','2023-07-18 02:10:53',NULL,0,'2023-07-18 02:10:53','2023-07-18 02:14:21','5',278947,'34343222','Passport',4,5,'dfsafasdfa','asd@mail.com','sdfasdf','2222222222',3,1,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 (78,NULL,'2023-07-17','2023-07-17','cancelled','2023-07-18 02:11:03',NULL,0,'2023-07-18 02:11:03','2023-07-18 02:14:17','6',581683,'34343222','Passport',4,5,'dfsafasdfa','asd@mail.com','sdfasdf','2222222222',3,1,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 (79,NULL,'2023-07-17','2023-07-17','cancelled','2023-07-18 02:17:11',NULL,0,'2023-07-18 02:17:11','2023-07-18 02:20:35','5',200773,'asdfasd','Passport',4,4,'asfasdf','df@mail.com','asdfas','3434334767',3,1,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(80,NULL,'2023-07-17','2023-07-17','confirmed','2023-07-18 02:21:22',NULL,1,'2023-07-18 02:21:22','2023-07-18 02:21:22','5',549905,'fasdfasdf','Passport',4,4,'xfgsdfgsd','gdsfg@mail.vom','fgsdfg','2222222222',3,1,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
-(81,NULL,'2023-07-17','2023-07-17','confirmed','2023-07-18 02:21:40',NULL,1,'2023-07-18 02:21:40','2023-07-18 02:21:40','6',798842,'fasdfasdf','Passport',4,4,'xfgsdfgsd','gdsfg@mail.vom','fgsdfg','2222222222',3,1,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(80,NULL,'2023-07-17','2023-07-17','checked_in','2023-07-18 02:21:22',NULL,1,'2023-07-18 02:21:22','2023-08-16 09:01:45','5',549905,'fasdfasdf','Passport',4,4,'xfgsdfgsd','gdsfg@mail.vom','fgsdfg','2222222222',3,1,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(81,NULL,'2023-07-17','2023-07-17','checked_out','2023-07-18 02:21:40','2023-08-16 08:43:39',0,'2023-07-18 02:21:40','2023-08-16 08:43:39','6',798842,'fasdfasdf','Passport',4,4,'xfgsdfgsd','gdsfg@mail.vom','fgsdfg','2222222222',3,1,4,2500,2,50,2450,13,350.35,3045.35,10,245,1,2500,NULL,'Three thousand and forty five  only.'),
 (82,NULL,'2023-07-17','2023-07-17','checked_in','2023-07-18 02:21:48',NULL,1,'2023-07-18 02:21:48','2023-08-12 06:23:44','7',536231,'fasdfasdf','Passport',4,4,'xfgsdfgsd','gdsfg@mail.vom','fgsdfg','2222222222',3,1,4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
 (83,NULL,'2023-07-17','2023-07-17','checked_out','2023-07-18 02:21:54','2023-08-12 06:23:19',0,'2023-07-18 02:21:54','2023-08-12 06:23:19','8',683640,'fasdfasdf','Passport',4,4,'xfgsdfgsd','gdsfg@mail.vom','fgsdfg','2222222222',3,1,4,2500,0,0,7500,13,975,8475,0,0,3,7500,NULL,'Eight thousand four hundred and seventy five  only.'),
 (84,NULL,'2023-07-17','2023-07-17','checked_out','2023-07-18 02:23:47','2023-08-04 11:09:28',0,'2023-07-18 02:23:47','2023-08-04 11:09:28','10',851106,'asdfasd','Driving Licence',1,1,'sdfasdf','fasdf@mail.com','sadfasd','1111111111',4,1,1,2500,0,0,10000,13,1300,11300,0,0,4,10000,NULL,'Eleven thousand three hundred  only.'),
 (85,NULL,'2023-07-22','2023-07-24','checked_out','2023-07-22 23:39:11','2023-07-22 23:41:04',0,'2023-07-22 23:39:11','2023-07-22 23:41:04','9',479113,'asdflasdkuhfjnms','Passport',3,2,'klgsjdglasdhf;as','fdjadshl@mail.com','asd;klfhasd;lkfas;l','9874563215',5,1,1,2500,1,25,2475,13,324.97,2824.7200000000003,1,24.75,1,2500,NULL,'Two thousand eight hundred and twenty four  only.'),
-(86,NULL,'2023-07-27','2023-07-29','checked_out','2023-07-26 10:13:30','2023-07-26 10:17:31',0,'2023-07-26 10:13:30','2023-07-26 10:17:31','9',705753,'dfgdsf34534','Citizenship',0,2,'xzfgfzsdv','vzxcv@hfsdfg.com','vzxcvzxc','9874563222',5,1,1,2500,0,0,5000,13,650,5650,0,0,2,5000,NULL,'Five thousand six hundred and fifty  only.');
+(86,NULL,'2023-07-27','2023-07-29','checked_out','2023-07-26 10:13:30','2023-07-26 10:17:31',0,'2023-07-26 10:13:30','2023-07-26 10:17:31','9',705753,'dfgdsf34534','Citizenship',0,2,'xzfgfzsdv','vzxcv@hfsdfg.com','vzxcvzxc','9874563222',5,1,1,2500,0,0,5000,13,650,5650,0,0,2,5000,NULL,'Five thousand six hundred and fifty  only.'),
+(87,NULL,'2023-08-16','2023-08-16','checked_in','2023-08-16 08:45:17',NULL,1,'2023-08-16 08:45:17','2023-08-16 08:45:22','9',995691,'21323','Passport',0,2,'asdasda','kljhaslkdj@mail.com','asdfewwe','9874563210',5,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
 /*Table structure for table `booking_message` */
 
@@ -677,10 +678,10 @@ insert  into `room`(`id`,`title`,`type_id`,`category_id`,`description`,`price`,`
 (3,'ROOM-201',1,2,'Starting Price',2500,'1661927578724.jpg,1661927578726.jpg',2,'2022-08-31 12:17:59','2022-08-31 12:17:59',1,6),
 (4,'ROOM-302',1,2,'Starting Price',2500,'1661927824584.jpg,1661927824585.jpg',3,'2022-08-31 12:22:05','2022-08-31 12:22:05',1,6),
 (5,'ROOM-202',1,3,'Starting Price',2500,'1661928019102.jpg,1661928019104.jpg',2,'2022-08-31 12:25:19','2022-08-31 12:25:19',1,3),
-(6,'ROOM-203',1,3,'Starting Price',2500,'1661928019102.jpg,1661928019104.jpg',2,'2022-08-31 12:25:19','2022-08-31 12:25:19',1,3),
+(6,'ROOM-203',1,3,'Starting Price',2500,'1661928019102.jpg,1661928019104.jpg',2,'2022-08-31 12:25:19','2022-08-31 12:25:19',1,2),
 (7,'ROOM-303',1,3,'Starting Price',2500,'1661928161626.jpg,1661928161627.jpg',3,'2022-08-31 12:27:42','2022-08-31 12:27:42',1,3),
 (8,'ROOM-304',1,3,'Starting Price',2500,'1661928161626.jpg,1661928161627.jpg',3,'2022-08-31 12:27:42','2022-08-31 12:27:42',1,2),
-(9,'ROOM-101',1,5,'1 king bedroom & twin 1 bedroom',2500,'1661928332873.jpg,1661928332874.jpg',1,'2022-08-31 12:30:33','2022-08-31 12:30:33',1,6),
+(9,'ROOM-101',1,5,'1 king bedroom & twin 1 bedroom',2500,'1661928332873.jpg,1661928332874.jpg',1,'2022-08-31 12:30:33','2022-08-31 12:30:33',1,3),
 (10,'ROOM-102',1,4,'Starting Price',2500,'1661928394879.jpg,1661928394879.jpg',1,'2022-08-31 12:31:35','2022-08-31 12:31:35',1,6);
 
 /*Table structure for table `room_item_bill_details` */
@@ -769,7 +770,9 @@ insert  into `room_item_bill_details`(`id`,`item_name`,`item_price`,`disc_pc`,`d
 (61,'Chicken Sandwich',250,0,0,250,1,1,250),
 (61,'Egg Sandwich',200,0,0,200,1,1,200),
 (61,'Veg Pizza',1050,0,0,1050,1,3,350),
-(61,'B&B Special',500,0,0,500,1,2,250);
+(61,'B&B Special',500,0,0,500,1,2,250),
+(62,'Veg Sandwich',250,0,0,250,1,1,250),
+(62,'Cheese Burger',400,0,0,400,1,2,200);
 
 /*Table structure for table `room_item_bill_master` */
 
@@ -801,7 +804,7 @@ CREATE TABLE `room_item_bill_master` (
   PRIMARY KEY (`id`),
   KEY `room_booking_id` (`room_booking_id`),
   CONSTRAINT `room_item_bill_master_ibfk_1` FOREIGN KEY (`room_booking_id`) REFERENCES `booking` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `room_item_bill_master` */
 
@@ -840,7 +843,9 @@ insert  into `room_item_bill_master`(`id`,`room_no`,`name`,`mobile`,`address`,`d
 (58,'ROOM-101','klgsjdglasdhf;as','9874563215','asd;klfhasd;lkfas;l',0,0,13,310.7,2700.7,'Two thousand seven hundred  only.',1,NULL,'2023-07-22 23:39:39','2023-07-22 23:40:45',2390,0,0,0,85,1,0),
 (59,'ROOM-101','xzfgfzsdv','9874563222','vzxcvzxc',0,0,13,0,0,NULL,1,NULL,'2023-07-26 10:14:06',NULL,0,0,0,0,86,1,0),
 (60,'ROOM-304','xfgsdfgsd','2222222222','fgsdfg',0,0,13,215.8,1875.8,'One thousand eight hundred and seventy five  only.',1,NULL,'2023-08-10 11:45:26','2023-08-12 06:10:40',1660,0,0,0,83,1,0),
-(61,'ROOM-303','xfgsdfgsd','2222222222','fgsdfg',0,0,13,260,2260,'Two thousand two hundred and sixty  only.',1,NULL,'2023-08-12 06:23:48','2023-08-13 03:16:02',2000,0,0,0,82,1,0);
+(61,'ROOM-303','xfgsdfgsd','2222222222','fgsdfg',0,0,13,260,2260,'Two thousand two hundred and sixty  only.',1,NULL,'2023-08-12 06:23:48','2023-08-13 03:16:02',2000,0,0,0,82,1,0),
+(62,'ROOM-203','xfgsdfgsd','2222222222','fgsdfg',0,0,13,84.5,734.5,'Seven hundred and thirty four  only.',1,NULL,'2023-08-16 08:41:55','2023-08-16 08:42:45',650,0,0,0,81,1,0),
+(63,'ROOM-202','xfgsdfgsd','2222222222','fgsdfg',0,0,13,0,0,NULL,1,NULL,'2023-08-16 09:01:53',NULL,0,0,0,0,80,1,0);
 
 /*Table structure for table `room_setting` */
 

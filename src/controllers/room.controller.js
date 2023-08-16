@@ -7,6 +7,7 @@ const { SUCCESS_CODE, SUCCESS_MESSAGE, REQUIRED_FIELDS, ERROR_500, INFO_CODE } =
 //create function for new room
 async function createNewRoom(req,res){
     const room = req.body;
+    console.log(room)
     if(!room || Object(room).length === 0) return apiCallBack(res,null,REQUIRED_FIELDS,INFO_CODE);
     if(room.floorId === null || room.noOfRoom === null || room.typeId === null || room.categoryId === null || room.price === null)
         return apiCallBack(res,null,REQUIRED_FIELDS,INFO_CODE);
@@ -16,8 +17,8 @@ async function createNewRoom(req,res){
     for(var i=0; i < roomTitleArray.length; i++){
         room['title'] = roomTitleArray[i];
         await roomModel.createNewRoom(room).then( () => {
-
         }).catch(e => {
+            console.log(e,'line 21')
             return apiCallBack(res,null,ERROR_500.message, ERROR_500.code);
         })
     }     
@@ -27,7 +28,7 @@ async function createNewRoom(req,res){
 //upadate room
 async function updateRoomById(req,res){
     var roomData = req.body;
-    if(!roomData || Object(roomData).length === 0) 
+    if(!roomData || Object(roomData).length === 0)
         return apiCallBack(res,null,REQUIRED_FIELDS,INFO_CODE);
     if(roomData.id === null || roomData.floorId === null || !roomData.title || roomData.typeId === null || roomData.categoryId === null || roomData.price === null)
         return apiCallBack(res,null,REQUIRED_FIELDS,INFO_CODE);
