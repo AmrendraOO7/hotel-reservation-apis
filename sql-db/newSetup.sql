@@ -1,3 +1,22 @@
+/*
+SQLyog Community v13.2.0 (64 bit)
+MySQL - 10.5.21-MariaDB-cll-lve : Database - technexa_reservation_surajHotel
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`technexa_reservation_surajHotel` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
+
+USE `technexa_reservation_surajHotel`;
+
+/*Table structure for table `about` */
 
 DROP TABLE IF EXISTS `about`;
 
@@ -10,7 +29,7 @@ CREATE TABLE `about` (
 /*Data for the table `about` */
 
 insert  into `about`(`id`,`content`) values 
-(1,'Hotel reservation application is the place where you can\n1. Engage your hotel room by your system.\n2. Create room service bill anong with  facility of printing KOT directly in kitchen.\n3. Engage the table by system\n4. creating order bill on the basis of table along facility of printing KOT directly in kitchen.\n5. Any order ticket KOT/BOT can be printed directly at the service.\n6. And many more.....');
+(1,'Hotel reservation application is the place where you can\r\n1. Engage your hotel room by your system.\r\n2. Create room service bill anong with  facility of printing KOT directly in kitchen.\r\n3. Engage the table by system\r\n4. creating order bill on the basis of table along facility of printing KOT directly in kitchen.\r\n5. Any order ticket KOT/BOT can be printed directly at the service.\r\n6. And many more.....');
 
 /*Table structure for table `booking` */
 
@@ -58,7 +77,9 @@ CREATE TABLE `booking` (
   KEY `typeId` (`typeId`),
   CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `category` (`id`),
   CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`typeId`) REFERENCES `type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `booking` */
 
 /*Table structure for table `booking_message` */
 
@@ -102,7 +123,13 @@ CREATE TABLE `category` (
   `title` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+/*Data for the table `category` */
+
+insert  into `category`(`id`,`title`,`status`) values 
+(1,'Category A',1),
+(2,'Category B',1);
 
 /*Table structure for table `companyprofile` */
 
@@ -126,7 +153,7 @@ CREATE TABLE `companyprofile` (
 /*Data for the table `companyprofile` */
 
 insert  into `companyprofile`(`id`,`companyName`,`registrationNo`,`companyAddress`,`companyContact`,`licenseNo`,`validFrom`,`validUpTo`,`createdDate`,`updatedDate`,`companyStarRating`) values 
-(1,'Hotel Suraj Pvt. Ltd.','VAT:- XXXXXXXXXXXXX','MainRoad, Adarshnagar, Birgunj, Parsa-Nepal','+9779876543210, +977-012-12-1234','XXX-XXXXXXX-xxxxxx-xxxxxxx','2023-07-21','2024-07-20','2023-07-21 13:43:23',NULL,5);
+(1,'Hotel Suraj Pvt. Ltd.','VAT:- XXXXXXXXXXXXX','MainRoad, Adarshnagar, Birgunj, Parsa-Nepal','+9779876543210, +977-012-12-1234','XXX-XXXXXXX-xxxxxx-xxxxxxx','2023-08-16','2023-10-01','2023-08-16 17:39:27',NULL,NULL);
 
 /*Table structure for table `contact_us` */
 
@@ -142,8 +169,9 @@ CREATE TABLE `contact_us` (
   `status` tinyint(1) NOT NULL,
   `read_status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+/*Data for the table `contact_us` */
 
 /*Table structure for table `floor` */
 
@@ -185,7 +213,9 @@ CREATE TABLE `food_menu` (
   `updated_date` datetime NOT NULL,
   `price` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=170 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `food_menu` */
 
 /*Table structure for table `food_type` */
 
@@ -209,7 +239,7 @@ insert  into `food_type`(`id`,`title`,`status`) values
 (6,'Soup',1),
 (7,'Indian Biryani Rice',1),
 (8,'Soft & Cold Drinks',1),
-(9,'Snacks Veg',0),
+(9,'Snacks Veg',1),
 (10,'Curry Veg',1),
 (11,'Curry Non-Veg',1),
 (12,'Tandoor',1),
@@ -247,7 +277,9 @@ CREATE TABLE `gallery` (
   `status` tinyint(1) NOT NULL,
   `images` varchar(20000) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `gallery` */
 
 /*Table structure for table `resturant_table` */
 
@@ -263,8 +295,21 @@ CREATE TABLE `resturant_table` (
   PRIMARY KEY (`id`),
   KEY `type_id` (`type_id`),
   CONSTRAINT `resturant_table_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+/*Data for the table `resturant_table` */
+
+insert  into `resturant_table`(`id`,`title`,`type_id`,`status`,`created_date`,`updated_date`) values 
+(1,'TABLE-1',1,1,'2023-08-16 23:44:06','2023-08-16 23:44:06'),
+(2,'TABLE-2',1,1,'2023-08-16 23:44:06','2023-08-16 23:44:06'),
+(3,'TABLE-3',1,1,'2023-08-16 23:44:06','2023-08-16 23:44:06'),
+(4,'TABLE-4',1,1,'2023-08-16 23:44:07','2023-08-16 23:44:07'),
+(5,'TABLE-5',1,1,'2023-08-16 23:44:07','2023-08-16 23:44:07'),
+(6,'TABLE-6',1,1,'2023-08-16 23:44:07','2023-08-16 23:44:07'),
+(7,'TABLE-7',1,1,'2023-08-16 23:44:07','2023-08-16 23:44:07'),
+(8,'TABLE-8',1,1,'2023-08-16 23:44:08','2023-08-16 23:44:08'),
+(9,'TABLE-9',1,1,'2023-08-16 23:44:08','2023-08-16 23:44:08'),
+(10,'TABLE-10',1,1,'2023-08-16 23:44:08','2023-08-16 23:44:08');
 
 /*Table structure for table `resturant_table_setting` */
 
@@ -309,7 +354,7 @@ CREATE TABLE `room` (
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `type_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
-  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `price` double NOT NULL,
   `images` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `floor_id` int(11) NOT NULL,
@@ -320,8 +365,16 @@ CREATE TABLE `room` (
   PRIMARY KEY (`id`),
   KEY `room_status_id` (`room_status_id`),
   CONSTRAINT `room_ibfk_1` FOREIGN KEY (`room_status_id`) REFERENCES `room_status` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+/*Data for the table `room` */
+
+insert  into `room`(`id`,`title`,`type_id`,`category_id`,`description`,`price`,`images`,`floor_id`,`created_date`,`updated_date`,`status`,`room_status_id`) values 
+(1,'ROOM-101',1,1,'Demo Rooms',2500,'1692208695666.jpg,1692208695668.jpg',1,'2023-08-16 23:43:17','2023-08-16 23:43:17',1,6),
+(2,'ROOM-102',1,1,'Demo Rooms',2500,'1692208695666.jpg,1692208695668.jpg',1,'2023-08-16 23:43:18','2023-08-16 23:43:18',1,6),
+(3,'ROOM-103',1,1,'Demo Rooms',2500,'1692208695666.jpg,1692208695668.jpg',1,'2023-08-16 23:43:18','2023-08-16 23:43:18',1,6),
+(4,'ROOM-104',1,1,'Demo Rooms',2500,'1692208695666.jpg,1692208695668.jpg',1,'2023-08-16 23:43:18','2023-08-16 23:43:18',1,6),
+(5,'ROOM-105',1,1,'Demo Rooms',2500,'1692208695666.jpg,1692208695668.jpg',1,'2023-08-16 23:43:19','2023-08-16 23:43:19',1,6);
 
 /*Table structure for table `room_item_bill_details` */
 
@@ -341,6 +394,7 @@ CREATE TABLE `room_item_bill_details` (
   CONSTRAINT `room_item_bill_details_ibfk_1` FOREIGN KEY (`id`) REFERENCES `room_item_bill_master` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+/*Data for the table `room_item_bill_details` */
 
 /*Table structure for table `room_item_bill_master` */
 
@@ -372,7 +426,9 @@ CREATE TABLE `room_item_bill_master` (
   PRIMARY KEY (`id`),
   KEY `room_booking_id` (`room_booking_id`),
   CONSTRAINT `room_item_bill_master_ibfk_1` FOREIGN KEY (`room_booking_id`) REFERENCES `booking` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `room_item_bill_master` */
 
 /*Table structure for table `room_setting` */
 
@@ -460,7 +516,9 @@ CREATE TABLE `table_booking` (
   CONSTRAINT `table_booking_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `table_booking_ibfk_3` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
   CONSTRAINT `table_booking_ibfk_4` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `table_booking` */
 
 /*Table structure for table `table_booking_message` */
 
@@ -490,7 +548,7 @@ CREATE TABLE `table_booking_message` (
   KEY `type_id` (`type_id`),
   KEY `category_id` (`category_id`),
   CONSTRAINT `table_booking_message_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `table_booking_message` */
 
@@ -511,6 +569,8 @@ CREATE TABLE `table_item_bill_details` (
   KEY `id` (`id`),
   CONSTRAINT `table_item_bill_details_ibfk_1` FOREIGN KEY (`id`) REFERENCES `table_item_bill_master` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `table_item_bill_details` */
 
 /*Table structure for table `table_item_bill_master` */
 
@@ -542,8 +602,9 @@ CREATE TABLE `table_item_bill_master` (
   PRIMARY KEY (`id`),
   KEY `table_item_bill_master_ibfk_1` (`table_booking_id`),
   CONSTRAINT `table_item_bill_master_ibfk_1` FOREIGN KEY (`table_booking_id`) REFERENCES `table_booking` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+/*Data for the table `table_item_bill_master` */
 
 /*Table structure for table `type` */
 
@@ -554,14 +615,13 @@ CREATE TABLE `type` (
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `type` */
 
 insert  into `type`(`id`,`title`,`status`) values 
 (1,'AC',1),
-(2,'NON-AC',1),
-(3,'MEETING-HALL',1);
+(2,'NON-AC',1);
 
 /*Table structure for table `user` */
 
@@ -581,12 +641,13 @@ CREATE TABLE `user` (
   `updated_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
 
 insert  into `user`(`id`,`name`,`username`,`password`,`mobile`,`email`,`address`,`status`,`role_id`,`created_date`,`updated_date`) values 
-(1,'Bishal','admin','$2b$05$oua6/Y.GtCyumclSORXpUeVBnRCwUqHCgwTUQ90Xzkm7UJcSmdoBC','9804275924','info@hotelsuraj.com','Birgunj',1,1,'2023-08-08 16:36:04','2023-07-27 19:11:50')
+(1,'Bishal','admin','$2b$05$oua6/Y.GtCyumclSORXpUeVBnRCwUqHCgwTUQ90Xzkm7UJcSmdoBC','9804275924','info@hotelsuraj.com','Birgunj',1,1,'2023-08-08 16:36:04','2023-07-27 19:11:50');
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
