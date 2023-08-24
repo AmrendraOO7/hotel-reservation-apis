@@ -8,7 +8,7 @@ class bookingMessage {
         var query = `SELECT bm.id, DATE_FORMAT(bm.from_date,'%Y-%m-%d') AS fromDate, DATE_FORMAT(bm.to_Date,'%Y-%m-%d') AS toDate, bm.number_of_rooms AS noOfRooms, bm.type_id AS typeId, (SELECT title FROM type WHERE id = bm.type_id) AS type, bm.category_id AS categoryId, (SELECT title FROM category WHERE id = bm.category_id) AS category, bm.no_of_adult_guest AS noOfAdultGuest, bm.no_of_child_guest AS noOfChildGuest, bm.full_name fullName, bm.email, bm.mobile, bm.address, bm.id_type AS identificationType, bm.id_number AS identificationNumber, bm.unique_msg_code AS uniqueMessageCode, bm.status FROM booking_message bm where bm.status = ?;`
         return await new Promise((resolve,reject)=>{
             db.query(query,[Boolean(0)],(err,res)=>{
-                Console.debug(err,res,'getAllUnreadMessage')
+                Console.debug(err,JSON.stringify(res),'getAllUnreadMessage')
                 if(err) reject(err);
                 else resolve(res);
             });

@@ -8,7 +8,7 @@ var dateComparisonQuery = "(book_from BETWEEN ? AND ?) AND (book_to BETWEEN ? AN
 class Booking {
 
     static async allRoomAvailability(){
-        var query = "SELECT r.id, r.title, r.price, r.category_id, (SELECT title FROM category WHERE id = r.category_id) AS category, r.type_id, (SELECT title FROM type WHERE id = r.type_id) AS type ,r.floor_id, (SELECT title FROM floor WHERE id = r.floor_id) AS floor FROM room r WHERE id NOT IN(SELECT room_id FROM booking WHERE booking_status <> 'checked_out' AND booking_status <> 'cancelled');";
+        var query = "SELECT r.id, r.title, r.price, r.category_id, (SELECT title FROM category WHERE id = r.category_id) AS category, r.type_id, (SELECT title FROM type WHERE id = r.type_id) AS type ,r.floor_id, (SELECT title FROM floor WHERE id = r.floor_id) AS floor, r.room_status_id, (SELECT s.title FROM room_status s WHERE s.id = r.room_status_id) AS status FROM room r WHERE id NOT IN(SELECT room_id FROM booking WHERE booking_status <> 'checked_out' AND booking_status <> 'cancelled');";
         return await new Promise((resolve,reject)=>{
             db.query(query,[],(err,res)=>{
                 if(err) reject(err);

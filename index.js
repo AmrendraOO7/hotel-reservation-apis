@@ -96,7 +96,6 @@ app.use('/table/setting', tableSetting);
 //booking
 const bookingRoute = require('./src/routes/booking.route');
 app.use("/booking", bookingRoute);
-
 // table booking
 const tableBookingRoute = require('./src/routes/tableBooking.route');
 app.use("/tableBooking", tableBookingRoute);
